@@ -7,19 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>article-detail</ion-title>
+    <ion-buttons>
+      <button ion-button (click)="dismissModal()"><ion-icon name="arrow-round-back"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-grid>
+<ion-content>
+  <ion-card>
     <ion-row>
       <ion-col>
         <div>{{ article.post_title }}</div>
-        <div>{{ article.post_content }}</div>
+        <div [innerHTML]="article.post_content"></div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-card>
 </ion-content>

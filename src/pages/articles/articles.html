@@ -12,7 +12,7 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>articles</ion-title>
+    <ion-title>Actualités</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,12 +20,12 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let article of articles" (click)="viewDetail(article.id)">
-      <ion-thumbnail>
+    <ion-card *ngFor="let article of articles" (click)="viewDetail(article.id)">
         <img [src]="'http://www.tousarbitres.fr/wp-content/uploads/' + article.metaValue" />
-        <ion-img src="{{ 'http://www.tousarbitres.fr/wp-content/uploads/' + article.metaValue }}"></ion-img>
-      </ion-thumbnail>
-         {{ article.postTitle }}
-    </ion-item>
+        <ion-card-content>
+          {{ article.postTitle }}
+        </ion-card-content>
+
+    </ion-card>
   </ion-list>
 </ion-content>
