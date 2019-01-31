@@ -3,13 +3,16 @@ import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ArticlesPage } from "../pages/articles/articles";
-
+import { MarquagePage } from "../pages/marquage/marquage";
 import { HomePage } from '../pages/home/home';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   articlesPage:any = ArticlesPage;
+  marquagePage:any = MarquagePage;
+
   @ViewChild('content') content: NavController;
 
   constructor(platform: Platform,
@@ -25,6 +28,7 @@ export class MyApp {
   }
 
   openPage(page: any) {
+    console.log(page);
     this.content.setRoot(page);
     this.menuCtrl.close();
   }

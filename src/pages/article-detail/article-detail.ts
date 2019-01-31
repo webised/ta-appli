@@ -17,9 +17,6 @@ import { Subscription } from "rxjs";
 })
 export class ArticleDetailPage {
 
-  art = { id:"4", post_content:"cccc", post_title:"titre", meta_value:"dd" };
-
-
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -27,7 +24,6 @@ export class ArticleDetailPage {
               private viewCtrl: ViewController) {
   }
 
-  Post: any
   article: Article;
   post_title: string;
   post_content: any;
@@ -43,10 +39,6 @@ export class ArticleDetailPage {
   ngOnInit() {
     this.id = this.navParams.get('id');
 
-    this.article = {
-      post_title: 'test',
-      post_content: 'content'
-    };
     const observable = this.articleService.getDetailArticle(this.id);
     this.articleSubscription = observable.subscribe(
       (value) => {

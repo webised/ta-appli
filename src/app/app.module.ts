@@ -10,13 +10,15 @@ import { ArticlesPage } from '../pages/articles/articles';
 import { HttpClientModule } from "@angular/common/http";
 import { ArticleService } from "../services/articles.service";
 import { ArticleDetailPage } from "../pages/article-detail/article-detail";
+import { MarquagePage } from "../pages/marquage/marquage";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ArticlesPage,
-    ArticleDetailPage
+    ArticleDetailPage,
+    MarquagePage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ArticleDetailPage } from "../pages/article-detail/article-detail";
     MyApp,
     HomePage,
     ArticlesPage,
-    ArticleDetailPage
+    ArticleDetailPage,
+    MarquagePage
   ],
   providers: [
     StatusBar,

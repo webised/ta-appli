@@ -86,3 +86,19 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+        primary:    #036,
+        secondary:  #feca30,
+        danger:     #f53d3d,
+        light:      #f4f4f4,
+        dark:       #222
+);
