@@ -11,6 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { ArticleService } from "../services/articles.service";
 import { ArticleDetailPage } from "../pages/article-detail/article-detail";
 import { MarquagePage } from "../pages/marquage/marquage";
+import { MarquageService } from "../services/marquage.service";
+import { MenuService } from "../services/menu.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,14 @@ import { MarquagePage } from "../pages/marquage/marquage";
     StatusBar,
     SplashScreen,
     ArticleService,
+    MarquageService,
+    MenuService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+
+
+
+
+}

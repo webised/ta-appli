@@ -3,6 +3,7 @@ import { HttpClient} from "@angular/common/http";
 import { Injectable} from "@angular/core";
 import { Article } from "../models/Article";
 
+
 @Injectable()
 export class ArticleService {
 
@@ -17,4 +18,8 @@ export class ArticleService {
   getDetailArticle(id) {
     return this.httpClient.get<Article>('http://localhost/ta-api/web/app_dev.php/article/'+id);
   }
+  getArticleCategory(id) {
+    return this.httpClient.get<any[]>('http://www.tousarbitres.fr/wp-json/wp/v2/posts?order=desc&_embed&categories='+id);
+  }
+
 }

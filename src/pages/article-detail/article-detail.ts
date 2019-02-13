@@ -25,8 +25,6 @@ export class ArticleDetailPage {
   }
 
   article: Article;
-  post_title: string;
-  post_content: any;
   title: any;
   post: any;
   content: any;
@@ -38,11 +36,14 @@ export class ArticleDetailPage {
 
   ngOnInit() {
     this.id = this.navParams.get('id');
+    this.article = {
+      post_title: '',
+      post_content: ''
+    };
 
     const observable = this.articleService.getDetailArticle(this.id);
     this.articleSubscription = observable.subscribe(
       (value) => {
-
         this.re = /height="[0-9]*"/g;
         this.newstr = value.post_content.replace(this.re, "");
         this.re2 = /width="[0-9]*"/g;

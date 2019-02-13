@@ -19,13 +19,12 @@
 
 
 <ion-content >
-  <h1>NBA Summer Camp 2018</h1>
-  <iframe frameborder="0" width="100%" height="270" src="https://www.dailymotion.com/embed/video/x70ma1y" allowfullscreen allow="autoplay"></iframe>
+  <h1></h1>
   <ion-list>
     <ion-card padding *ngFor="let article of articles" (click)="viewDetail(article.id)">
-        <img [src]="'http://www.tousarbitres.fr/wp-content/uploads/' + article.metaValue" />
+        <img [src]='article._embedded["wp:featuredmedia"]["0"].media_details.sizes.widget.source_url' />
         <ion-card-content>
-          {{ article.postTitle }}
+          {{ article.title.rendered }}
         </ion-card-content>
 
     </ion-card>

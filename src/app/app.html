@@ -6,13 +6,17 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <button ion-item (click)="openPage(articlesPage)">
-                Actualités
-            </button>
-            <button ion-item (click)="openPage(marquagePage)">
-                Demande de marquages
-            </button>
+            <ng-container *ngFor="let item of menu; last as isLast">
+                <button ion-item *ngIf="item.menu_item_parent == '0'" (click)="viewDetail(item.object, item.object_id)">{{ item.title }}</button>
+                    <div *ngFor="let subitem of submenu">
+                        <button class="sub-item" ion-item *ngIf="subitem.menu_item_parent == item.ID" (click)="viewDetail(subitem.object, subitem.object_id)">{{ subitem.title }}</button>
+                    </div>
+                <button *ngIf="isLast" ion-item (click)="openPage(marquagePage)">
+                    Demande de marquages
+                </button>
+            </ng-container>
         </ion-list>
+
     </ion-content>
 </ion-menu>
-<ion-nav [root]="articlesPage" #content></ion-nav>
+<ion-nav [root]="homePage" #content></ion-nav>

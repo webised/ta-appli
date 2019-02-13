@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, OnInit} from '@angular/core';
 import { ModalController, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ArticleService} from "../../services/articles.service";
 import {Subscription} from "rxjs";
@@ -16,7 +16,7 @@ import { ArticleDetailPage } from "../article-detail/article-detail";
   selector: 'page-articles',
   templateUrl: 'articles.html',
 })
-export class ArticlesPage {
+export class ArticlesPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -24,25 +24,41 @@ export class ArticlesPage {
               private menuCtrl: MenuController,
               private modalCtrl: ModalController) {
   }
-  articles: Article[];
+  articles: any;
   articleSubscription: Subscription;
 
    ngOnInit() {
-    const observable = this.articleService.getArticlesFromServer();
-    this.articleSubscription = observable.subscribe(
-      (value) => {
-        this.articles = value;
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        console.log(this.articles)
-      }
-    );
 
+    if(!!this.navParams.get('id')) {
+      const observable = this.articleService.getArticleCategory(this.navParams.get('id'));
+      this.articleSubscription = observable.subscribe(
+        (value) => {
+          this.articles = value;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log(this.articles)
+        }
+      );
+    }
+    else {
+      const observable = this.articleService.getArticlesFromServer();
+      this.articleSubscription = observable.subscribe(
+        (value) => {
+          this.articles = value;
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          console.log(this.articles)
+        }
+      );
+     }
+   }
 
-  }
   onToggleMenu() {
     this.menuCtrl.open();
   }

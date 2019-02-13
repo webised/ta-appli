@@ -1,10 +1,12 @@
 export class Marquage {
-  lastname: string;
-  fisrtname: string;
-  adress: string;
-  adress2: string;
-  city: string;
-  postalCode: string;
-  sport: number;
-  qty: number;
+  constructor(
+    public lastname: string,
+    public firstname: string,
+    public adress: string,
+    public adress2: string,
+    public city: string,
+    public postalCode: string,
+    public sport: number,
+    public qty: number
+  ){}
 }
